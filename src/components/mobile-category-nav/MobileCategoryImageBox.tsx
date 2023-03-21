@@ -23,9 +23,9 @@ const MobileCategoryImageBox: React.FC<MobileCategoryImageBoxProps> = ({
   return (
     <FlexBox flexDirection="column" alignItems="center" justifyContent="center">
       {imgUrl ? (
-        <StyledImage src={imgUrl} objectFit="cover" />
+        <StyledImage src={imgUrl} width={700} height={700} objectFit="cover" />
       ) : (
-        icon && <Icon size="48px">{icon}</Icon>
+        icon && <Icon size="48px" >{icon}</Icon>
       )}
       <Typography
         className="ellipsis"
