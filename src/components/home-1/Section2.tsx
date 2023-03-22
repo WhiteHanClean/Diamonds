@@ -4,6 +4,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import Carousel from "../carousel/Carousel";
 import CategorySectionCreator from "../CategorySectionCreator";
 import ProductCard1 from "../product-cards/ProductCard1";
+import Rating  from '@component/rating/Rating';
 
 const Section2: React.FC = () => {
   const [visibleSlides, setVisibleSlides] = useState(4);
@@ -35,6 +36,7 @@ const Section2: React.FC = () => {
                 off={56}
                 key={ind}
               />
+               
             </Box>
           ))}
         </Carousel>

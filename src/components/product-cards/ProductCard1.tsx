@@ -139,7 +139,13 @@ const ProductCard1: React.FC<ProductCard1Props> = ({
               </a>
             </Link>
 
-            <Rating value={rating || 0} outof={5} color="warn" readonly />
+            <Rating
+            outof={5}
+            color="warn"
+            size="small"
+            value={4}
+            readonly={false}
+          />
 
             <FlexBox alignItems="center" mt="10px">
               <SemiSpan pr="0.5rem" fontWeight="600" color="primary.main">

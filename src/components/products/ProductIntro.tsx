@@ -106,8 +106,13 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
           <FlexBox alignItems="center" mb="1rem">
             <SemiSpan>Rated:</SemiSpan>
             <Box ml="8px" mr="8px">
-              <Rating color="warn" value={4} outof={5} />
-            </Box>
+            <Rating
+            outof={5}
+            color="warn"
+            size="medium"
+            value={4}
+            readonly={false}
+          />            </Box>
             <H6>(50)</H6>
           </FlexBox>
 
