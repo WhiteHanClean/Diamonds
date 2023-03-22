@@ -11,6 +11,7 @@ import FlexBox from "../FlexBox";
 import Grid from "../grid/Grid";
 import Icon from "../icon/Icon";
 import Rating from "../rating/Rating";
+import Zoom from "react-img-zoom";
 import { H1, H2, H3, H6, SemiSpan } from "../Typography";
 
 export interface ProductIntroProps {
@@ -26,7 +27,9 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
   price = 200,
   id,
 }) => {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);  
+  console.log(imgUrl[selectedImage]);
+  const [selectInd, setSelectInd] = useState(0)
   const { state, dispatch } = useAppContext();
   const cartList: CartItem[] = state.cart.cartList;
   const router = useRouter();
@@ -35,8 +38,9 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
     (item) => item.id === id || item.id === routerId
   );
 
-  const handleImageClick = (ind) => () => {
+  const handleImageClick = (ind: number) => () => {    
     setSelectedImage(ind);
+    setSelectInd(ind)
   };
 
   const handleCartAmountChange = useCallback(
@@ -61,15 +65,20 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
         <Grid item md={6} xs={12} alignItems="center">
           <Box>
             <FlexBox justifyContent="center" mb="50px">
-              <Image
+              {
+                selectedImage === selectInd 
+                ? <Zoom
                 width={300}
                 height={300}
-                src={imgUrl[selectedImage]}
+                img={imgUrl[selectInd]}
                 style={{ objectFit: "contain" }}
+                zoomScale={1.4}
               />
+                : ''
+              }       
             </FlexBox>
             <FlexBox overflow="auto">
-              {imgUrl.map((url, ind) => (
+              {imgUrl.map((url, ind) => (                
                 <Box
                   size={70}
                   minWidth={70}
@@ -106,13 +115,14 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
           <FlexBox alignItems="center" mb="1rem">
             <SemiSpan>Rated:</SemiSpan>
             <Box ml="8px" mr="8px">
-            <Rating
-            outof={5}
-            color="warn"
-            size="medium"
-            value={4}
-            readonly={false}
-          />            </Box>
+              <Rating
+                outof={5}
+                color="warn"
+                size="medium"
+                value={4}
+                readonly={false}
+              />{" "}
+            </Box>
             <H6>(50)</H6>
           </FlexBox>
 
@@ -178,8 +188,8 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
 ProductIntro.defaultProps = {
   imgUrl: [
     "/assets/images/products/headphone.png",
-    "/assets/images/products/hiclipart.com (16).png",
-    "/assets/images/products/hiclipart.com (18).png",
+    "/assets/images/products/hiclipart.com(16).png",
+    "/assets/images/products/hiclipart.com(18).png",
   ],
   title: "Mi Note 11 Pro",
   price: 1100,
