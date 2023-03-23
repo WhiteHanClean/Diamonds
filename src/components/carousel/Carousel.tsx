@@ -109,7 +109,7 @@ const Carousel: React.FC<CarouselProps> = ({
             as={ButtonBack}
             variant="contained"
             color={arrowButtonColor}
-            style={leftButtonStyle || {}}
+            style={{color:"white"}}
           >
             <Icon variant="small" defaultcolor="currentColor">
               arrow-left
@@ -120,7 +120,7 @@ const Carousel: React.FC<CarouselProps> = ({
             as={ButtonNext}
             variant="contained"
             color={arrowButtonColor}
-            style={rightButtonStyle || {}}
+            style={{color:"white"}}
           >
             <Icon variant="small" defaultcolor="currentColor">
               arrow-right

@@ -26,7 +26,7 @@ const StyledLink = styled.a`
 const Footer: React.FC = () => {
   return (
     <footer>
-      <Box bg="#ff6636">
+      <Box bg="#7852A9">
         <Container p="1rem" color="white">
           <Box py="5rem" overflow="hidden">
             <Grid container spacing={6}>

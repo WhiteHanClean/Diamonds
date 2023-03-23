@@ -18,7 +18,7 @@ const CarouselCard1: React.FC<CarouselCard1Props> = () => {
           className="button-link"
           variant="contained"
           color="primary"
-          backgroundColor="#ff6636"
+          backgroundColor="#7852A9"
           p="1rem 1.5rem"
         >
           Visit Collections
