@@ -13,7 +13,6 @@ const StyledMobileNavigationBar = styled.div`
   background: ${getTheme("colors.body.paper")};
   box-shadow: 0px 1px 4px 3px rgba(0, 0, 0, 0.1);
   z-index: 999;
-
   .link {
     flex: 1 1 0;
     display: flex;
