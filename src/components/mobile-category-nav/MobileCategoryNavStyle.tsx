@@ -58,6 +58,7 @@ export const MobileCategoryNavStyle = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  
   @media screen and (min-width: 0px) and (max-width: 480px) {
     .main-category-holder {
       padding: 0 15px 0 15px;
