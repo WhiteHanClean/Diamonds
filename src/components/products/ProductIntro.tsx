@@ -3,7 +3,7 @@ import { useAppContext } from "@context/app/AppContext";
 import { CartItem } from "@reducer/cartReducer";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import Avatar from "../avatar/Avatar";
 import Box from "../Box";
 import Button from "../buttons/Button";
@@ -11,7 +11,8 @@ import FlexBox from "../FlexBox";
 import Grid from "../grid/Grid";
 import Icon from "../icon/Icon";
 import Rating from "../rating/Rating";
-import Zoom from "react-img-zoom";
+import ImageZoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { H1, H2, H3, H6, SemiSpan } from "../Typography";
 
 export interface ProductIntroProps {
@@ -27,9 +28,10 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
   price = 200,
   id,
 }) => {
-  const [selectedImage, setSelectedImage] = useState(0);  
-  console.log(imgUrl[selectedImage]);
-  const [selectInd, setSelectInd] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectUrlImg, setSelectUrlImg] = useState(
+    "/assets/images/products/headphone.png"
+  );
   const { state, dispatch } = useAppContext();
   const cartList: CartItem[] = state.cart.cartList;
   const router = useRouter();
@@ -38,9 +40,9 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
     (item) => item.id === id || item.id === routerId
   );
 
-  const handleImageClick = (ind: number) => () => {    
+  const handleImageClick = (ind: number, url: string) => {
     setSelectedImage(ind);
-    setSelectInd(ind)
+    setSelectUrlImg(url);
   };
 
   const handleCartAmountChange = useCallback(
@@ -59,26 +61,31 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
     []
   );
 
+  const zoomProps = {
+    image: {
+      src: selectUrlImg,
+      alt: "My Image",
+    },
+    zoomImage: {
+      src: selectUrlImg,
+      alt: "My Image",
+    },
+    shouldReplaceImage: true,
+    zoomMargin: 20,
+  };
+
   return (
     <Box overflow="hidden">
       <Grid container justifyContent="center" spacing={16}>
         <Grid item md={6} xs={12} alignItems="center">
           <Box>
             <FlexBox justifyContent="center" mb="50px">
-              {
-                selectedImage === selectInd 
-                ? <Zoom
-                width={300}
-                height={300}
-                img={imgUrl[selectInd]}
-                style={{ objectFit: "contain" }}
-                zoomScale={1.4}
-              />
-                : ''
-              }       
+              <ImageZoom {...zoomProps}>
+                <Image src={selectUrlImg} alt="My Image" />
+              </ImageZoom>
             </FlexBox>
             <FlexBox overflow="auto">
-              {imgUrl.map((url, ind) => (                
+              {imgUrl.map((url, ind) => (
                 <Box
                   size={70}
                   minWidth={70}
@@ -95,7 +102,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({
                   borderColor={
                     selectedImage === ind ? "primary.main" : "gray.400"
                   }
-                  onClick={handleImageClick(ind)}
+                  onClick={() => handleImageClick(ind, url)}
                 >
                   <Avatar src={url} borderRadius="10px" size={40} />
                 </Box>
