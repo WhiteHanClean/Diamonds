@@ -13,7 +13,7 @@ export const MobileCategoryNavStyle = styled.div`
   }
   .main-category-holder {
     position: fixed;
-    left: 0;    
+    left: 0;
     bottom: ${layoutConstant.mobileNavHeight};
     background: ${getTheme("colors.gray.300")};
     overflow-y: auto;
@@ -22,6 +22,8 @@ export const MobileCategoryNavStyle = styled.div`
     padding: 0 10% 0 10%;
     width: 100%;
     justify-content: space-between;
+    top: none;
+    bottom: 0; 
     .main-category-box {
       display: flex;
       flex-direction: column;
@@ -59,6 +61,11 @@ export const MobileCategoryNavStyle = styled.div`
   @media screen and (min-width: 0px) and (max-width: 480px) {
     .main-category-holder {
       padding: 0 15px 0 15px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .main-category-holder{
+      bottom: ${layoutConstant.mobileNavHeight};
     }
   }
 `;
