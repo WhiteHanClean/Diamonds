@@ -16,10 +16,10 @@ export const StyledDashboardNav = styled(NavLink)<{ isCurrentPath?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 4px solid;
+  border-top: 4px solid;
   color: ${({ isCurrentPath }) =>
     isCurrentPath ? getTheme("colors.primary.main") : "inherit"};
-  border-left-color: ${({ isCurrentPath }) =>
+  border-top-color: ${({ isCurrentPath }) =>
     isCurrentPath ? getTheme("colors.primary.main") : "transparent"};
 
   .dashboard-nav-icon-holder {
@@ -27,7 +27,7 @@ export const StyledDashboardNav = styled(NavLink)<{ isCurrentPath?: boolean }>`
   }
 
   :hover {
-    border-left-color: ${getTheme("colors.primary.main")};
+    border-top-color: ${getTheme("colors.primary.main")};
 
     .dashboard-nav-icon-holder {
       color: ${getTheme("colors.primary.main")};

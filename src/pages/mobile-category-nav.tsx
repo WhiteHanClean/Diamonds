@@ -37,7 +37,7 @@ const MobileCategoryNav = () => {
         {navigations.map((item) => (
           <Box
             className="main-category-box"
-            borderLeft={`${category?.href === item.href ? "3" : "0"}px solid`}
+            borderTop={`${category?.href === item.href ? "3" : "0"}px solid`}
             onClick={handleCategoryClick(item)}
             key={item.title}
           >
