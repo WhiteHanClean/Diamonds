@@ -139,12 +139,12 @@ const suggestion = [
   {
     title: "Sunglasses",
     href: "/Sunglasses",
-    imgUrl: "/assets/images/products/categories/sunglass.png",
+    imgUrl: "/assets/images/products/categories/sunglasses.png",
   },
   {
     title: "Sneakers",
     href: "/Sneakers",
-    imgUrl: "/assets/images/products/categories/sneaker.png",
+    imgUrl: "/assets/images/products/categories/sneakers.png",
   },
   {
     title: "Sandals",
@@ -154,7 +154,7 @@ const suggestion = [
   {
     title: "Formal",
     href: "/Formal",
-    imgUrl: "/assets/images/products/categories/shirt.png",
+    imgUrl: "/assets/images/products/categories/casual.png",
   },
   {
     title: "Casual",
