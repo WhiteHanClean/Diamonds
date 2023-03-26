@@ -64,10 +64,11 @@ const Header: React.FC<HeaderProps> = ({ isFixed, className }) => {
           <Link href="/">
             <a>
               <Image
-                src="/assets/images/logo_header.png"
+                src="/assets/images/SNOWFLAKE-LOGO.svg"
                 style={{
                   width: 150,
-                  height: 90,
+                  height: 49,
+                  color: "#424124"
                 }}
                 alt="logo"
               />
